@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vad är AI-skills · och hur du skapar dina egna | @joudgor</title>
-<meta name="description" content="En skill är en mapp med en fil som heter SKILL.md. Så funkar de, så skapar du din egen, och så installerar du andras. För Claude och ChatGPT, på svenska.">
-<meta property="og:title" content="Vad är AI-skills, och hur du skapar dina egna">
-<meta property="og:description" content="En skill är en SOP för AI. Så skapar du din egen och använder andras, steg för steg.">
+<title>Vad AI-skills är · och hur du skapar dina egna | @joudgor</title>
+<meta name="description" content="En skill är en mapp med en fil som heter SKILL.md. Här är vad de är, hur du bygger din egen på tio minuter, var du hittar andras, och de fällor alla går i. På svenska.">
+<meta property="og:title" content="Vad AI-skills är, och hur du skapar dina egna">
+<meta property="og:description" content="En skill är en SOP för AI. Bygg din egen på tio minuter, utan kod. Steg för steg.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#F7F6F3; --bg-alt:#FBFBFA; --surface:#FFFFFF; --border:#EAEAEA; --border-soft:rgba(0,0,0,0.06);
@@ -55,9 +55,9 @@
   .fmt span{font-family:var(--mono);font-weight:600;font-size:11px;letter-spacing:0.04em;
     color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:9999px;padding:7px 14px;}
 
-  .fig{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface);margin-top:16px;}
+  .fig{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface);margin-top:18px;}
   .fig img{width:100%;display:block;background:#0d0d0f;}
-  .fig figcaption{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;padding:10px 14px;}
+  .fig figcaption{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;padding:10px 14px;background:var(--surface);border-top:1px solid var(--border);}
   .fig.illus{background:#FBFBFA;}
   .fig.illus svg{width:100%;height:auto;display:block;}
   .fig.illus.hero{border:0;background:transparent;margin-top:34px;}
@@ -77,8 +77,9 @@
   .step p{font-size:15.5px;color:var(--text);line-height:1.62;}
   .step p b{color:var(--ink);font-weight:600;}
   .step p+p{margin-top:10px;}
-  .step p code,.feat code,.d-intro code{font-family:var(--mono);font-size:13.5px;background:var(--bg);border:1px solid var(--border);
+  code{font-family:var(--mono);font-size:13.5px;background:var(--bg);border:1px solid var(--border);
     border-radius:5px;padding:1px 6px;color:var(--ink);word-break:break-word;}
+  .note code{background:rgba(255,255,255,0.6);border-color:rgba(0,0,0,0.06);}
   .kbd{font-family:var(--mono);font-weight:600;font-size:13px;background:var(--bg);border:1px solid var(--border);
     border-radius:6px;padding:2px 8px;color:var(--ink);}
   .crumbs{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:7px;}
@@ -95,12 +96,10 @@
   .note.red .lb{color:var(--red-tx);} .note.red b{color:var(--red-tx);}
   .note.green{background:var(--green-bg);border-color:rgba(52,101,56,0.16);}
   .note.green .lb{color:var(--green-tx);} .note.green b{color:var(--green-tx);}
-  .note code{font-family:var(--mono);font-size:13px;background:rgba(255,255,255,0.6);border:1px solid rgba(0,0,0,0.06);
-    border-radius:5px;padding:1px 5px;color:var(--ink);word-break:break-word;}
-  .step p a,.note a,.d-intro a{color:var(--brand-dk);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(20,87,224,0.28);transition:border-color .2s ease;}
-  .step p a:hover,.note a:hover{border-bottom-color:var(--brand-dk);}
+  a{color:var(--brand-dk);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(20,87,224,0.28);transition:border-color .2s ease;}
+  a:hover{border-bottom-color:var(--brand-dk);}
+  nav a,.btn,.fc-link{border-bottom:0;}
 
-  /* BENTO */
   .bento{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px;}
   .qcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px;
     transition:box-shadow .2s ease,transform .2s ease;}
@@ -112,7 +111,6 @@
   .tag{display:inline-block;font-family:var(--mono);font-weight:600;font-size:10.5px;
     letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border-radius:9999px;margin-top:16px;}
 
-  /* DETAIL */
   .detail{border-top:1px solid var(--border);padding-top:54px;margin-top:8px;}
   .detail:first-of-type{border-top:0;padding-top:0;}
   .detail + .detail{margin-top:64px;}
@@ -121,14 +119,12 @@
   .d-intro{font-size:17px;line-height:1.66;color:var(--text);margin-top:18px;max-width:700px;}
   .d-intro b{color:var(--ink);font-weight:600;}
 
-  /* SPEC ROWS */
   .feat{margin-top:26px;border-top:1px solid var(--border);}
-  .feat .row{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--border);}
+  .feat .row{display:grid;grid-template-columns:210px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--border);}
   .feat .row dt{font-family:var(--sans);font-weight:600;font-size:15px;color:var(--ink);}
   .feat .row dd{font-size:15.5px;color:var(--text);line-height:1.6;}
   .feat .row dd b{color:var(--ink);font-weight:600;}
 
-  /* CODE BOX */
   .prompt{margin-top:18px;border:1px solid #2a2926;border-radius:12px;overflow:hidden;background:#1b1a18;}
   .prompt-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px;
     background:#232220;border-bottom:1px solid rgba(255,255,255,0.06);}
@@ -215,71 +211,89 @@
     <div class="wrap">
       <div class="eyebrow reveal">Saker du kan göra med AI</div>
       <h1 class="reveal">Vad en <em>skill</em> är, och hur du gör din egen</h1>
-      <p class="lede reveal">En skill är en SOP för AI. Du skriver ner hur något ska göras, en gång, och sen följer AI:n den instruktionen varje gång i stället för att gissa. <b>Precis som i Matrix när Neo får kunskapen inlagd och plötsligt kan något han aldrig kunnat.</b> Här är vad de faktiskt är, hur du skapar din egen och hur du använder andras.</p>
+      <p class="lede reveal">En skill är en SOP för AI. Du skriver ner hur något ska göras, en gång, och sen följer AI:n den instruktionen varje gång i stället för att gissa. <b>Precis som i Matrix när Neo får kunskapen inlagd och plötsligt kan något han aldrig kunnat.</b> Här är hela genomgången: vad de är, hur du bygger din egen utan att skriva en rad kod, var du hittar andras, och fällorna som får folk att ge upp.</p>
       <div class="fmt reveal">
         <span>Claude</span>
-        <span>ChatGPT</span>
         <span>Öppen standard</span>
         <span>Ingen kod krävs</span>
+        <span>10 minuter</span>
       </div>
 
       <figure class="fig illus hero reveal">
-        <svg viewBox="0 0 880 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="En mapp med filen SKILL.md kopplas in i AI:n, som därefter levererar arbete enligt din instruktion">
+        <svg viewBox="0 0 700 370" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="En mapp med filen SKILL.md kopplas in i AI:n, som därefter levererar rätt resultat varje gång">
           <title>En mapp med SKILL.md kopplas in i AI:n</title>
-
           <g font-family="'Manrope',sans-serif">
-            <!-- the skill folder -->
-            <path d="M42 96 L42 320 Q42 336 58 336 L288 336 Q304 336 304 320 L304 128 Q304 112 288 112 L176 112 L156 96 Z" fill="#FBECE1" stroke="#B4481F" stroke-width="3"/>
-            <rect x="82" y="164" width="182" height="128" rx="12" fill="#FFFFFF" stroke="#1F1D1B" stroke-width="2.5"/>
-            <text x="106" y="212" font-size="24" font-weight="700" fill="#1F1D1B">SKILL</text>
-            <text x="196" y="212" font-size="24" font-weight="700" fill="#B4481F">.md</text>
-            <rect x="106" y="234" width="134" height="9" rx="4.5" fill="#EAEAEA"/>
-            <rect x="106" y="254" width="106" height="9" rx="4.5" fill="#EAEAEA"/>
-            <text x="173" y="372" text-anchor="middle" font-size="23" font-weight="600" fill="#787774">Din instruktion</text>
+            <path d="M24 64 L24 258 Q24 272 38 272 L218 272 Q232 272 232 258 L232 96 Q232 82 218 82 L134 82 L112 64 Z" fill="#FBECE1" stroke="#B4481F" stroke-width="3"/>
+            <rect x="50" y="116" width="156" height="112" rx="12" fill="#FFFFFF" stroke="#1F1D1B" stroke-width="2.5"/>
+            <text x="68" y="164" font-size="23" font-weight="700" fill="#1F1D1B">SKILL</text>
+            <text x="147" y="164" font-size="23" font-weight="700" fill="#B4481F">.md</text>
+            <rect x="68" y="184" width="118" height="9" rx="4.5" fill="#EAEAEA"/>
+            <rect x="68" y="204" width="92" height="9" rx="4.5" fill="#EAEAEA"/>
+            <text x="128" y="330" text-anchor="middle" font-size="22" font-weight="600" fill="#787774">Din instruktion</text>
 
-            <!-- cable into the AI -->
-            <path d="M304 224 C 360 224, 372 200, 424 200" fill="none" stroke="#B4481F" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="424" cy="200" r="10" fill="#B4481F"/>
+            <path d="M232 170 L 280 170" fill="none" stroke="#B4481F" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="282" cy="170" r="9" fill="#B4481F"/>
 
-            <!-- the AI core -->
-            <rect x="440" y="130" width="170" height="140" rx="20" fill="#FFFFFF" stroke="#1F1D1B" stroke-width="3"/>
-            <circle cx="525" cy="188" r="30" fill="#FBECE1" stroke="#B4481F" stroke-width="3"/>
-            <path d="M512 188 l9 10 l18 -21" fill="none" stroke="#B4481F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="525" y="243" text-anchor="middle" font-size="22" font-weight="700" fill="#1F1D1B">AI</text>
-            <text x="525" y="372" text-anchor="middle" font-size="23" font-weight="600" fill="#787774">Följer den varje gång</text>
+            <rect x="292" y="112" width="132" height="116" rx="18" fill="#FFFFFF" stroke="#1F1D1B" stroke-width="3"/>
+            <circle cx="358" cy="158" r="26" fill="#FBECE1" stroke="#B4481F" stroke-width="3"/>
+            <path d="M347 158 l8 9 l16 -18" fill="none" stroke="#B4481F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="358" y="210" text-anchor="middle" font-size="21" font-weight="700" fill="#1F1D1B">AI</text>
+            <text x="358" y="330" text-anchor="middle" font-size="22" font-weight="600" fill="#787774">Följer den</text>
 
-            <!-- arrow out -->
-            <path d="M614 200 L 664 200" fill="none" stroke="#CBC9C5" stroke-width="4" stroke-linecap="round"/>
-            <path d="M652 188 L 668 200 L 652 212" fill="none" stroke="#CBC9C5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M424 170 L 464 170" fill="none" stroke="#CBC9C5" stroke-width="4" stroke-linecap="round"/>
+            <path d="M456 160 L 468 170 L 456 180" fill="none" stroke="#CBC9C5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 
-            <!-- result -->
-            <rect x="682" y="128" width="156" height="144" rx="16" fill="#EDF3EC" stroke="#346538" stroke-width="3"/>
-            <rect x="708" y="160" width="104" height="11" rx="5.5" fill="#346538"/>
-            <rect x="708" y="186" width="86" height="11" rx="5.5" fill="#9BBF9E"/>
-            <rect x="708" y="212" width="104" height="11" rx="5.5" fill="#9BBF9E"/>
-            <rect x="708" y="238" width="66" height="11" rx="5.5" fill="#9BBF9E"/>
-            <text x="760" y="372" text-anchor="middle" font-size="23" font-weight="600" fill="#346538">Rätt varje gång</text>
+            <rect x="480" y="110" width="180" height="120" rx="16" fill="#EDF3EC" stroke="#346538" stroke-width="3"/>
+            <rect x="506" y="140" width="118" height="11" rx="5.5" fill="#346538"/>
+            <rect x="506" y="166" width="96" height="11" rx="5.5" fill="#9BBF9E"/>
+            <rect x="506" y="192" width="118" height="11" rx="5.5" fill="#9BBF9E"/>
+            <text x="570" y="330" text-anchor="middle" font-size="22" font-weight="600" fill="#346538">Rätt varje gång</text>
           </g>
         </svg>
       </figure>
     </div>
   </header>
 
-  <!-- WHAT IS IT -->
+  <!-- 1 · WHAT -->
   <section class="wrap narrow" style="padding-top:8px;margin:0 auto;">
     <div class="sec-head reveal">
       <h2>Vad en skill faktiskt är</h2>
       <div class="sec-sub">Det låter tekniskt. Det är det inte.</div>
     </div>
 
-    <p class="d-intro reveal" style="margin-top:22px"><b>En skill är en mapp med en fil som heter SKILL.md i.</b> Det är hela grejen. Filen innehåller dina instruktioner, skrivna på vanlig svenska eller engelska. Ingen kod krävs.</p>
-    <p class="d-intro reveal" style="margin-top:14px">Anthropic själva beskriver det som en <b>introduktionsguide för en ny kollega</b>. Du skriver ner hur ni gör här: stegen, reglerna, vad som är viktigt. Sen kan den nya kollegan jobba som ni gör, utan att du förklarar om varje gång.</p>
+    <p class="d-intro reveal" style="margin-top:22px"><b>En skill är en mapp med en fil som heter SKILL.md i.</b> Det är hela grejen. Filen innehåller dina instruktioner, skrivna på vanlig svenska. Ingen kod krävs.</p>
+
+    <figure class="fig illus reveal">
+      <svg viewBox="0 0 640 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mappen mitt-skill innehåller SKILL.md som är obligatorisk, plus tre frivilliga mappar">
+        <title>Anatomin i en skill</title>
+        <g font-family="'Manrope',sans-serif">
+          <path d="M24 54 L24 434 Q24 452 42 452 L598 452 Q616 452 616 434 L616 92 Q616 74 598 74 L318 74 L292 54 Z" fill="#FBECE1" stroke="#B4481F" stroke-width="3"/>
+          <text x="50" y="132" font-size="34" font-weight="800" fill="#B4481F">mitt-skill/</text>
+          <rect x="50" y="160" width="540" height="96" rx="14" fill="#FFFFFF" stroke="#1F1D1B" stroke-width="3"/>
+          <text x="78" y="208" font-size="32" font-weight="700" fill="#1F1D1B">SKILL.md</text>
+          <rect x="288" y="182" width="118" height="40" rx="20" fill="#B4481F"/>
+          <text x="347" y="210" text-anchor="middle" font-size="21" font-weight="800" fill="#FFFFFF">MÅSTE</text>
+          <rect x="50" y="274" width="540" height="52" rx="12" fill="#FFFFFF" stroke="#CBC9C5" stroke-width="2.5"/>
+          <text x="78" y="309" font-size="26" font-weight="700" fill="#787774">scripts/</text>
+          <text x="430" y="309" font-size="20" fill="#B0ADA8">frivillig</text>
+          <rect x="50" y="338" width="540" height="52" rx="12" fill="#FFFFFF" stroke="#CBC9C5" stroke-width="2.5"/>
+          <text x="78" y="373" font-size="26" font-weight="700" fill="#787774">references/</text>
+          <text x="430" y="373" font-size="20" fill="#B0ADA8">frivillig</text>
+          <rect x="50" y="402" width="540" height="52" rx="12" fill="#FFFFFF" stroke="#CBC9C5" stroke-width="2.5"/>
+          <text x="78" y="437" font-size="26" font-weight="700" fill="#787774">assets/</text>
+          <text x="430" y="437" font-size="20" fill="#B0ADA8">frivillig</text>
+        </g>
+      </svg>
+      <figcaption>Anatomin · bara SKILL.md är obligatorisk</figcaption>
+    </figure>
+
+    <p class="d-intro reveal" style="margin-top:18px">Anthropic beskriver det själva som <b>en introduktionsguide för en ny kollega</b>. Du skriver ner hur ni gör här: stegen, reglerna, vad som är viktigt. Sen kan den nya kollegan jobba som ni gör, utan att du förklarar om varje gång.</p>
 
     <div class="prompt reveal">
-      <div class="prompt-bar"><span class="lbl">Så här ser en hel skill ut</span><button class="prompt-copy" type="button">Kopiera</button></div>
+      <div class="prompt-bar"><span class="lbl">En hel skill, färdig att använda</span><button class="prompt-copy" type="button">Kopiera</button></div>
       <pre>---
 name: morgon
-description: Läser mina mejl och min kalender och ger mig en kort rapport på vad jag ska göra idag. Använd när jag skriver morgon, dagens plan, eller vad ska jag göra idag.
+description: Läser mina mejl och min kalender och ger en kort rapport på vad jag ska göra idag. Använd när jag skriver morgon, dagens plan, eller vad ska jag göra idag.
 ---
 
 # Morgonrapport
@@ -293,14 +307,65 @@ description: Läser mina mejl och min kalender och ger mig en kort rapport på v
 
 Håll rapporten under en skärm. Inga långa förklaringar.</pre>
     </div>
-    <p class="d-intro reveal" style="margin-top:14px">Det där är en komplett, fungerande skill. Två rader längst upp mellan streckmarkeringarna, sen dina instruktioner.</p>
-
-    <div class="note blue reveal"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span><span><b>Raden som avgör allt är description.</b> AI:n ser bara namnet och beskrivningen tills den bestämmer sig för att öppna skillen. Skriver du luddigt (<code>hjälper med mejl</code>) triggas den aldrig. Skriv vad den gör OCH när den ska användas, som i exemplet ovan. Det är den vanligaste anledningen till att en skill "inte funkar".</span></div>
-
-    <div class="note reveal"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span><span>Regler för namnet: bara små bokstäver, siffror och bindestreck, max 64 tecken. Orden <b>claude</b> och <b>anthropic</b> är förbjudna i namnet. På claude.ai får beskrivningen vara max 200 tecken.</span></div>
+    <p class="d-intro reveal" style="margin-top:14px">Två rader längst upp mellan streckmarkeringarna, sen dina instruktioner. Det är en komplett, fungerande skill.</p>
   </section>
 
-  <!-- TWO PATHS -->
+  <!-- 2 · THREE LEVELS -->
+  <section class="wrap narrow" style="padding-top:8px;margin:0 auto;">
+    <div class="sec-head reveal">
+      <h2>Varför beskrivningen avgör allt</h2>
+      <div class="sec-sub">Den här delen förklarar nästan ingen, och det är den som avgör om din skill funkar.</div>
+    </div>
+
+    <p class="d-intro reveal" style="margin-top:22px">AI:n läser inte hela din skill hela tiden. Den laddar den i <b>tre nivåer</b>, och bara den första är alltid påslagen.</p>
+
+    <figure class="fig illus reveal">
+      <svg viewBox="0 0 640 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tre nivåer: namn och beskrivning alltid i minnet, resten av filen när skillen triggar, extra filer bara vid behov">
+        <title>De tre nivåerna</title>
+        <g font-family="'Manrope',sans-serif">
+          <rect x="24" y="26" width="592" height="112" rx="16" fill="#FBECE1" stroke="#B4481F" stroke-width="3"/>
+          <circle cx="78" cy="70" r="24" fill="#B4481F"/><text x="78" y="79" text-anchor="middle" font-size="25" font-weight="800" fill="#FFF">1</text>
+          <text x="120" y="68" font-size="28" font-weight="700" fill="#1F1D1B">Namn + beskrivning</text>
+          <text x="120" y="108" font-size="23" fill="#B4481F">Alltid i minnet</text>
+          <rect x="24" y="158" width="592" height="112" rx="16" fill="#FFFFFF" stroke="#1F1D1B" stroke-width="2.5"/>
+          <circle cx="78" cy="202" r="24" fill="#1F1D1B"/><text x="78" y="211" text-anchor="middle" font-size="25" font-weight="800" fill="#FFF">2</text>
+          <text x="120" y="200" font-size="28" font-weight="700" fill="#1F1D1B">Resten av SKILL.md</text>
+          <text x="120" y="240" font-size="23" fill="#3D3A36">Läses när skillen triggar</text>
+          <rect x="24" y="290" width="592" height="112" rx="16" fill="#FBFBFA" stroke="#CBC9C5" stroke-width="2.5"/>
+          <circle cx="78" cy="334" r="24" fill="#787774"/><text x="78" y="343" text-anchor="middle" font-size="25" font-weight="800" fill="#FFF">3</text>
+          <text x="120" y="332" font-size="28" font-weight="700" fill="#787774">Extra filer</text>
+          <text x="120" y="372" font-size="23" fill="#787774">Öppnas bara vid behov</text>
+        </g>
+      </svg>
+      <figcaption>Tre nivåer · nivå 1 avgör om nivå 2 ens öppnas</figcaption>
+    </figure>
+
+    <p class="d-intro reveal" style="margin-top:18px">Där ligger hela poängen. AI:n ser bara <b>namnet och beskrivningen</b> tills den bestämmer sig för att öppna skillen. Är beskrivningen luddig öppnas den aldrig, hur bra instruktionerna än är.</p>
+
+    <figure class="fig illus reveal">
+      <svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="En tydlig beskrivning triggar skillen, en vag beskrivning gör det inte">
+        <title>Triggar eller triggar inte</title>
+        <g font-family="'Manrope',sans-serif">
+          <rect x="24" y="26" width="592" height="140" rx="16" fill="#EDF3EC" stroke="#346538" stroke-width="3"/>
+          <circle cx="66" cy="68" r="19" fill="#346538"/>
+          <path d="M57 68 l7 7 l12 -14" fill="none" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="98" y="77" font-size="25" font-weight="800" fill="#346538">TRIGGAR</text>
+          <text x="52" y="120" font-size="22" fill="#1F1D1B">"Läser mina mejl och kalendern och</text>
+          <text x="52" y="150" font-size="22" fill="#1F1D1B">ger dagens plan. Använd vid morgon."</text>
+          <rect x="24" y="192" width="592" height="108" rx="16" fill="#FDEBEC" stroke="#9F2F2D" stroke-width="3"/>
+          <circle cx="66" cy="234" r="19" fill="#9F2F2D"/>
+          <path d="M59 227 l14 14 M73 227 l-14 14" stroke="#FFF" stroke-width="4" stroke-linecap="round"/>
+          <text x="98" y="243" font-size="25" font-weight="800" fill="#9F2F2D">TRIGGAR INTE</text>
+          <text x="52" y="286" font-size="22" fill="#1F1D1B">"hjälper med mejl"</text>
+        </g>
+      </svg>
+      <figcaption>Samma skill · skillnaden ligger i beskrivningen</figcaption>
+    </figure>
+
+    <div class="note blue reveal"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span><span><b>Reglerna för beskrivningen:</b> skriv i tredje person, ta med <b>vad</b> den gör och <b>när</b> den ska användas, och räkna med max 200 tecken om du ska ladda upp den i Claude-appen. Skriv gärna in orden du faktiskt brukar använda, som i exemplet ovan.</span></div>
+  </section>
+
+  <!-- 3 · TWO PATHS -->
   <section style="padding-top:24px;padding-bottom:8px">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -325,147 +390,218 @@ Håll rapporten under en skärm. Inga långa förklaringar.</pre>
           <span class="tag" style="background:var(--green-bg);color:var(--green-tx)">Andras kunskap</span>
         </div>
       </div>
-      <div class="note blue reveal"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span><span><b>Läs det här först:</b> stegen skiljer sig beroende på var du kör Claude. I <b>Claude-appen</b> (claude.ai eller skrivbordsappen) laddar du upp filer i en meny. I <b>Claude Code</b> (terminalen) lägger du mappar på datorn och skriver kommandon. Jag har delat upp allt nedan efter vilket du använder, så följ bara din del.</span></div>
     </div>
   </section>
 
-  <!-- DETAILS -->
+  <!-- 4 · MAIN PATH -->
   <section class="wrap narrow" style="padding-top:24px;margin:0 auto;">
-
     <div class="detail reveal">
-      <div class="d-num">SÄTT 01</div>
-      <h2>Skapa din egen skill</h2>
-      <p class="d-intro">Du behöver inte skriva SKILL.md-filen för hand. Det finns en färdig skill som gör skills åt dig, byggd av Anthropic. Den heter <b>skill-creator</b>.</p>
+      <div class="d-num">HUVUDVÄGEN</div>
+      <h2>Låt Claude bygga skillen åt dig</h2>
+      <p class="d-intro">Det här är den enklaste vägen och den jag rekommenderar. Ingen mapp, ingen terminal, ingen zip-fil. Du pratar fram skillen i en vanlig chatt. Anthropic har en egen guide för exakt det här, riktad till folk som inte är tekniker.</p>
 
-      <div class="steps" style="margin-top:26px">
+      <div class="steps">
+        <div class="step">
+          <div class="step-n">1</div>
+          <div>
+            <h3>Slå på funktionen först</h3>
+            <p>Gå till <b>Settings</b>, sedan <b>Capabilities</b>, och slå på <b>Code execution and file creation</b>. Utan den syns inte Skills över huvud taget.</p>
+            <div class="crumbs">
+              <span class="cb">Settings</span><span class="sep">→</span>
+              <span class="cb">Capabilities</span><span class="sep">→</span>
+              <span class="cb">Code execution and file creation</span>
+            </div>
+            <div class="note"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span><span>Det här är <b>inte</b> samma meny som Skills. Settings är där du slår på funktionen, Customize är där skillsen sedan bor. Två olika ställen, och det är därför många inte hittar.</span></div>
+          </div>
+        </div>
 
         <div class="step">
-          <div class="step-n">A</div>
+          <div class="step-n">2</div>
           <div>
-            <h3>I Claude-appen (enklast)</h3>
-            <p>Här finns inget snedstreckskommando. Du skriver med vanliga ord i en ny chatt, ungefär så här:</p>
+            <h3>Beskriv vad du vill ha</h3>
+            <p>Öppna en ny chatt och berätta vad skillen ska göra. Bifoga gärna mallar eller exempel i samma meddelande, det gör skillen mycket bättre.</p>
             <div class="prompt">
               <div class="prompt-bar"><span class="lbl">Skriv i Claude</span><button class="prompt-copy" type="button">Kopiera</button></div>
-              <pre>Använd skill-creator och bygg en skill som läser mina mejl och min kalender och ger mig en kort rapport på vad jag ska göra idag.</pre>
+              <pre>Bygg en skill som läser mina mejl och min kalender och ger mig en kort rapport på vad jag ska göra idag.</pre>
             </div>
-            <p style="margin-top:12px">Claude ställer följdfrågor, och skriver sen en färdig SKILL.md åt dig. <b>Skillen är inte aktiv förrän du lagt in den:</b> gå till Customize, sen Skills, klicka på plus och ladda upp den.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-n">3</div>
+          <div>
+            <h3>Svara på frågorna</h3>
+            <p>Claude ställer följdfrågor: vad ska den göra, när ska den användas, hur ska resultatet se ut. <b>Svara utförligt.</b> Tumregeln är att någon som inte kan din process ska kunna följa den.</p>
+            <p>Sen skriver Claude en färdig skill åt dig och ger tillbaka filen.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-n">4</div>
+          <div>
+            <h3>Slå på den</h3>
+            <p>Skillen är inte aktiv förrän du lagt in den. Gå till <b>Customize</b>, sedan <b>Skills</b>, och lägg till den där.</p>
             <div class="crumbs">
               <span class="cb">Customize</span><span class="sep">→</span>
               <span class="cb">Skills</span><span class="sep">→</span>
-              <span class="cb">+</span><span class="sep">→</span>
-              <span class="cb">Ladda upp</span>
+              <span class="cb">+</span>
             </div>
-            <div class="note"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span><span>Kräver att <b>code execution</b> är påslaget under Settings, Capabilities. Anthropics supportsida listar Free, Pro, Max, Team och Enterprise, men deras utvecklardokumentation säger Pro och uppåt. Ser du inte Skills i menyn är det planen som är anledningen.</span></div>
           </div>
         </div>
 
         <div class="step">
-          <div class="step-n">B</div>
+          <div class="step-n">5</div>
           <div>
-            <h3>I Claude Code (terminalen)</h3>
-            <p>Här är skill-creator <b>inte förinstallerat</b>. Du installerar det en gång med det här kommandot:</p>
-            <div class="prompt">
-              <div class="prompt-bar"><span class="lbl">Kommando 1 · installera</span><button class="prompt-copy" type="button">Kopiera</button></div>
-              <pre>/plugin install skill-creator@claude-plugins-official</pre>
-            </div>
-            <p style="margin-top:12px">Står det <code>Run /reload-plugins to activate.</code> efteråt, kör det kommandot också. Sen kan du använda den:</p>
-            <div class="prompt">
-              <div class="prompt-bar"><span class="lbl">Kommando 2 · använd</span><button class="prompt-copy" type="button">Kopiera</button></div>
-              <pre>/skill-creator</pre>
-            </div>
-            <div class="note"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><span>Det heter <code>/skill-creator</code> med <b>bindestreck</b>, inte mellanslag. Skriver du <code>/skill creator</code> händer ingenting. Tips: skriv bara <code>/skill</code> och låt listan som dyker upp fylla i resten.</span></div>
-            <p style="margin-top:12px">Vill du hellre skriva filen själv lägger du den bara här, så hittar Claude den direkt:</p>
-            <div class="prompt">
-              <div class="prompt-bar"><span class="lbl">Sökväg · Windows</span><button class="prompt-copy" type="button">Kopiera</button></div>
-              <pre>C:\Users\dittnamn\.claude\skills\morgon\SKILL.md</pre>
-            </div>
-            <p style="margin-top:12px">På Mac är sökvägen <code>~/.claude/skills/morgon/SKILL.md</code>. Mappens namn blir kommandot, så den här skillen körs med <code>/morgon</code>.</p>
+            <h3>Testa och be om ändringar</h3>
+            <p>Be om en uppgift som skillen ska klara. Funkar det ser du att Claude nämner skillen medan den jobbar. Gör den fel, säg det bara rakt ut i chatten så ändrar Claude i skillen.</p>
+            <div class="note green"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Förvänta dig inte att den blir perfekt på första försöket. Den riktiga vinsten kommer när du kört den några gånger och justerat. En skill blir bättre varje gång du rättar den.</span></div>
           </div>
         </div>
-
       </div>
     </div>
+  </section>
 
+  <!-- 5 · FIND -->
+  <section class="wrap narrow" style="padding-top:8px;margin:0 auto;">
     <div class="detail reveal">
-      <div class="d-num">SÄTT 02</div>
-      <h2>Använd en skill som någon annan gjort</h2>
-      <p class="d-intro">Det vanliga är att en kreatör delar en GitHub-länk. Vad du gör med den länken beror helt på var du kör Claude.</p>
+      <div class="d-num">ANDRAS KUNSKAP</div>
+      <h2>Hitta skills som andra byggt</h2>
+      <p class="d-intro">Det finns en färdig katalog inbyggd i Claude. Du behöver ingen GitHub-länk och ingen nedladdning.</p>
+      <div class="crumbs" style="margin-top:20px">
+        <span class="cb">Customize</span><span class="sep">→</span>
+        <span class="cb">Skills</span><span class="sep">→</span>
+        <span class="cb">+</span><span class="sep">→</span>
+        <span class="cb">Browse skills</span><span class="sep">→</span>
+        <span class="cb">Install</span>
+      </div>
+      <div class="feat">
+        <div class="row"><dt>Titta utan konto</dt><dd>Vill du bläddra i lugn och ro först finns katalogen på webben: <a href="https://claude.com/plugins" target="_blank" rel="noopener">claude.com/plugins</a>. Ingen inloggning krävs.</dd></div>
+        <div class="row"><dt>Installerade är låsta</dt><dd>Skills du installerar från katalogen är <b>view-only</b>. Du kan använda dem men inte ändra i dem. Vill du ändra en: ladda ner en kopia, ändra den, och ladda upp den som din egen.</dd></div>
+        <div class="row"><dt>Fick du en zip-fil?</dt><dd>Delar någon en färdig skill med dig laddar du upp den under samma <b>+</b>-knapp. Zip-strukturen måste vara exakt rätt, se nedan.</dd></div>
+      </div>
 
-      <div class="steps" style="margin-top:26px">
+      <figure class="fig illus reveal">
+        <svg viewBox="0 0 640 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rätt zip innehåller mappen som i sin tur innehåller SKILL.md, fel zip innehåller filen löst">
+          <title>Zip-strukturen, rätt och fel</title>
+          <g font-family="'Manrope',sans-serif">
+            <rect x="24" y="24" width="592" height="176" rx="16" fill="#EDF3EC" stroke="#346538" stroke-width="3"/>
+            <circle cx="66" cy="64" r="19" fill="#346538"/>
+            <path d="M57 64 l7 7 l12 -14" fill="none" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="98" y="73" font-size="25" font-weight="800" fill="#346538">RÄTT</text>
+            <text x="56" y="116" font-size="23" font-weight="700" fill="#1F1D1B">mitt-skill.zip</text>
+            <text x="86" y="152" font-size="23" fill="#3D3A36">└─ mitt-skill/</text>
+            <text x="122" y="184" font-size="23" fill="#3D3A36">└─ SKILL.md</text>
+            <rect x="24" y="226" width="592" height="140" rx="16" fill="#FDEBEC" stroke="#9F2F2D" stroke-width="3"/>
+            <circle cx="66" cy="266" r="19" fill="#9F2F2D"/>
+            <path d="M59 259 l14 14 M73 259 l-14 14" stroke="#FFF" stroke-width="4" stroke-linecap="round"/>
+            <text x="98" y="275" font-size="25" font-weight="800" fill="#9F2F2D">FEL</text>
+            <text x="56" y="318" font-size="23" font-weight="700" fill="#1F1D1B">mitt-skill.zip</text>
+            <text x="86" y="352" font-size="23" fill="#3D3A36">└─ SKILL.md</text>
+            <text x="24" y="404" font-size="21" fill="#787774">Markera MAPPEN när du zippar, inte filerna inuti.</text>
+          </g>
+        </svg>
+        <figcaption>Zip-regeln · den vanligaste orsaken till misslyckad uppladdning</figcaption>
+      </figure>
 
-        <div class="step">
-          <div class="step-n">A</div>
-          <div>
-            <h3>I Claude-appen</h3>
-            <p>Du kan <b>inte</b> klistra in en GitHub-länk i chatten och be Claude installera skillen. Appen kan inte lägga till skills på ditt konto. Så här gör du i stället:</p>
-            <div class="feat">
-              <div class="row"><dt>1. Ladda ner</dt><dd>På GitHub-sidan: gröna knappen <b>Code</b>, sen <b>Download ZIP</b>. Har skaparen lagt upp en färdig zip under <b>Releases</b>, ta den i stället.</dd></div>
-              <div class="row"><dt>2. Fixa mappen</dt><dd>Zippen måste ha <b>själva skill-mappen överst</b>, och den mappen ska innehålla SKILL.md. En GitHub-zip heter ofta <code>repo-main</code> och innehåller hela projektet, då plockar du ut rätt undermapp och zippar bara den.</dd></div>
-              <div class="row"><dt>3. Ladda upp</dt><dd>Customize, sen Skills, klicka plus och välj att ladda upp. Skillen dyker upp i listan med en av- och påknapp.</dd></div>
-            </div>
-            <div class="note red"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><span><b>Steg 2 är där alla fastnar.</b> Fel mappstruktur i zippen och uppladdningen misslyckas utan att förklara varför. Öppna zippen och kolla att du ser mappen direkt, och SKILL.md inuti den.</span></div>
-          </div>
-        </div>
+      <div class="note red reveal"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><span>Mappens namn måste dessutom vara <b>samma som skillens namn</b> i filen. Heter skillen <code>morgon</code> ska mappen heta <code>morgon</code>. Stämmer det inte nekas uppladdningen.</span></div>
+    </div>
+  </section>
 
-        <div class="step">
-          <div class="step-n">B</div>
-          <div>
-            <h3>I Claude Code</h3>
-            <p>Här finns två vägar, och vilken du tar beror på vad som ligger i repot.</p>
-            <p><b>Är repot en marknadsplats</b> (skaparen säger det, eller repot innehåller en fil som heter <code>marketplace.json</code>):</p>
-            <div class="prompt">
-              <div class="prompt-bar"><span class="lbl">Kommandon · marknadsplats</span><button class="prompt-copy" type="button">Kopiera</button></div>
-              <pre>/plugin marketplace add ägare/repo
+  <!-- 6 · CLAUDE CODE -->
+  <section class="wrap narrow" style="padding-top:8px;margin:0 auto;">
+    <div class="detail reveal">
+      <div class="d-num">FÖR DIG SOM KÖR TERMINALEN</div>
+      <h2>Claude Code</h2>
+      <p class="d-intro">Kör du Claude Code finns inga menyer och ingen uppladdning. Skills är bara mappar på din dator, och det är enklare än det låter.</p>
+
+      <div class="feat">
+        <div class="row"><dt>Enklaste sättet</dt><dd>En <b>enda fil</b>, ingen mapp: lägg <code>.claude/commands/morgon.md</code> i projektet. Den blir <code>/morgon</code> direkt.</dd></div>
+        <div class="row"><dt>Personlig skill</dt><dd><code>C:\Users\dittnamn\.claude\skills\morgon\SKILL.md</code> gäller i alla dina projekt. På Mac: <code>~/.claude/skills/morgon/SKILL.md</code>.</dd></div>
+        <div class="row"><dt>Projekt-skill</dt><dd><code>.claude/skills/morgon/SKILL.md</code> i projektmappen. Följer med i git, så hela teamet får den.</dd></div>
+        <div class="row"><dt>Vad den heter</dt><dd><b>Mappens namn blir kommandot.</b> Mappen <code>morgon</code> körs med <code>/morgon</code>.</dd></div>
+      </div>
+
+      <p class="d-intro" style="margin-top:24px">Vill du ha hjälp att skriva den finns Anthropics eget verktyg. Det är inte förinstallerat, du installerar det en gång:</p>
+      <div class="prompt">
+        <div class="prompt-bar"><span class="lbl">Installera skill-creator</span><button class="prompt-copy" type="button">Kopiera</button></div>
+        <pre>/plugin install skill-creator@claude-plugins-official</pre>
+      </div>
+      <p class="d-intro" style="margin-top:12px">Står det <code>Run /reload-plugins to activate.</code> efteråt, kör det också. Sen använder du det med <code>/skill-creator</code>.</p>
+      <div class="note"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span><span>Det heter <code>/skill-creator</code> med <b>bindestreck</b>. Skriver du <code>/skill creator</code> med mellanslag händer ingenting. Skriv bara <code>/skill</code> och låt listan fylla i resten.</span></div>
+
+      <p class="d-intro" style="margin-top:24px">För att installera någon annans skill från GitHub, när repot är en marknadsplats:</p>
+      <div class="prompt">
+        <div class="prompt-bar"><span class="lbl">Installera från GitHub</span><button class="prompt-copy" type="button">Kopiera</button></div>
+        <pre>/plugin marketplace add ägare/repo
 /plugin install pluginnamn@marknadsplatsnamn</pre>
-            </div>
-            <p style="margin-top:12px"><b>Är det bara en skill-mapp</b> med SKILL.md i, lägger du mappen på rätt ställe, precis som en egen skill:</p>
-            <div class="prompt">
-              <div class="prompt-bar"><span class="lbl">Sökväg · Windows</span><button class="prompt-copy" type="button">Kopiera</button></div>
-              <pre>C:\Users\dittnamn\.claude\skills\</pre>
-            </div>
-            <p style="margin-top:12px">Sen körs den med <code>/mappnamnet</code>. Claude märker ändringen direkt, du behöver inte starta om.</p>
-          </div>
-        </div>
-
       </div>
+      <p class="d-intro" style="margin-top:12px">Är det bara en skill-mapp lägger du den i <code>.claude\skills\</code> som ovan. Du kan också bläddra bland färdiga skills med <code>/plugin</code> och fliken <b>Discover</b>. Den officiella marknadsplatsen finns redan där från start.</p>
     </div>
+  </section>
 
+  <!-- 7 · GOOD SKILL -->
+  <section class="wrap narrow" style="padding-top:8px;margin:0 auto;">
     <div class="detail reveal">
-      <div class="d-num">03</div>
-      <h2>Så kallar du på skillen</h2>
-      <p class="d-intro">Det här skiljer sig också mellan ytorna, och det är värt tio sekunder att lära sig.</p>
+      <div class="d-num">KVALITET</div>
+      <h2>Så skriver du en skill som faktiskt är bra</h2>
+      <p class="d-intro">Reglerna nedan kommer från Anthropics egen dokumentation om hur man skriver skills. De är enkla, och de flesta bryter mot dem.</p>
       <div class="feat">
-        <div class="row"><dt>Claude Code</dt><dd>Skriv <code>/</code> så listas dina skills. Skriv <code>/mappnamnet</code> och tryck enter. Claude kan också starta skillen själv när den passar.</dd></div>
-        <div class="row"><dt>Claude-appen</dt><dd><b>Inget snedstreck finns.</b> Du beskriver bara uppgiften, så väljer Claude skillen själv. Vill du styra det skriver du i klartext: "använd min morgon-skill".</dd></div>
-        <div class="row"><dt>ChatGPT</dt><dd>Du kallar på en skill med <code>@</code> följt av namnet.</dd></div>
+        <div class="row"><dt>Svara på fyra frågor först</dt><dd>Vad ska skillen kunna? När ska den användas? Hur ska resultatet se ut? Behöver den testas? Har du svaren skriver sig skillen nästan själv.</dd></div>
+        <div class="row"><dt>Skriv som order</dt><dd>"Läs mejlen", inte "du skulle kunna läsa mejlen". Rakt och konkret. Vaga formuleringar ger vaga resultat.</dd></div>
+        <div class="row"><dt>Håll den kort</dt><dd>Under 500 rader. Blir den längre, dela upp den och lägg det som sällan behövs i mappen <code>references/</code>.</dd></div>
+        <div class="row"><dt>Var snål med utrymmet</dt><dd>Allt du skriver tar plats i AI:ns minne. Ta med det som behövs, inget mer.</dd></div>
+        <div class="row"><dt>Utgå från riktig kunskap</dt><dd>Skriv ner hur <b>du</b> gör, inte vad AI:n redan gissar sig till. Det är din erfarenhet som gör skillen värd något.</dd></div>
+        <div class="row"><dt>Detaljnivå efter risk</dt><dd>Känslig uppgift där fel blir dyrt: var mycket specifik. Kreativ uppgift: lämna utrymme.</dd></div>
       </div>
-      <div class="note blue"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span><span>Kom skillen via ett plugin får den ofta plugin-namnet framför: <code>/pluginnamn:skillnamn</code>. Kortformen funkar också, om inte en annan skill redan tagit namnet.</span></div>
+      <div class="note blue reveal"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span><span><b>Bra att veta:</b> AI:n hoppar över skills för uppgifter den klarar ändå. Ber du om något enkelt startar skillen inte, även om beskrivningen passar perfekt. Det är inte trasigt, det är meningen. Skills är till för det som är krångligt eller görs i flera steg.</span></div>
     </div>
+  </section>
 
+  <!-- 8 · PITFALLS -->
+  <section class="wrap narrow" style="padding-top:8px;margin:0 auto;">
     <div class="detail reveal">
-      <div class="d-num">04</div>
-      <h2>Funkar det i ChatGPT också?</h2>
-      <p class="d-intro">Ja. Och det är bättre än de flesta tror: <b>skills är en öppen standard</b>. Anthropic skrev formatet och släppte det fritt, och OpenAI har anslutit sig till det. Samma SKILL.md, samma två rader längst upp.</p>
+      <div class="d-num">FÄLLOR</div>
+      <h2>Det som får folk att ge upp</h2>
+      <p class="d-intro">Nästan alla problem är ett av de här sex. Ingen av dem är ditt fel, de är bara oförklarade.</p>
       <div class="feat">
-        <div class="row"><dt>Var du hittar det</dt><dd>I sidopanelen: <b>Plugins</b>, sen fliken <b>Skills</b>. Du kan skapa en i chatten, i en editor, eller ladda upp en färdig zip.</dd></div>
-        <div class="row"><dt>Samma format</dt><dd>OpenAI skriver själva att du kan ladda ner en skill från en produkt och installera den i en annan. En skill du gjort för Claude kan alltså återanvändas.</dd></div>
-        <div class="row"><dt>Viktigt om planen</dt><dd>Skills i ChatGPT ligger under <b>ChatGPT Work</b> och finns inte på Free eller Go. OpenAI listar Business, Enterprise, Healthcare och Edu. Har du vanligt privatkonto, kolla om du ser Skills i menyn innan du planerar något runt det.</dd></div>
+        <div class="row"><dt>Skills syns inte alls</dt><dd>Code execution är avslaget. Slå på det under Settings, Capabilities.</dd></div>
+        <div class="row"><dt>Uppladdningen misslyckas</dt><dd>Zip-filen har filerna löst i stället för mappen, eller mappnamnet matchar inte skillens namn.</dd></div>
+        <div class="row"><dt>Namnet nekas</dt><dd>Bara små bokstäver, siffror och bindestreck. Inga mellanslag, inga versaler, inga understreck. Orden <b>claude</b> och <b>anthropic</b> är förbjudna.</dd></div>
+        <div class="row"><dt>Beskrivningen för lång</dt><dd>Claude-appen tar max 200 tecken. En skill skriven för Claude Code kan alltså nekas när du laddar upp den.</dd></div>
+        <div class="row"><dt>Skillen startar aldrig</dt><dd>Beskrivningen är för vag, eller så saknar den orden du faktiskt använder när du ber om saken.</dd></div>
+        <div class="row"><dt>Den finns inte på andra ställen</dt><dd><b>Skills synkar inte.</b> Claude-appen, Claude Code och ChatGPT är tre separata ställen. Samma mapp, men du lägger in den på varje yta för sig.</dd></div>
       </div>
-      <div class="note"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span><span><b>Skills synkar inte.</b> Claude-appen, Claude Code och ChatGPT är tre separata ställen. Samma mapp, men du lägger in den på varje yta för sig.</span></div>
     </div>
+  </section>
 
+  <!-- 9 · CHATGPT -->
+  <section class="wrap narrow" style="padding-top:8px;margin:0 auto;">
     <div class="detail reveal">
-      <div class="d-num">05</div>
-      <h2>Innan du installerar någon annans skill</h2>
+      <div class="d-num">OCH CHATGPT</div>
+      <h2>Samma format funkar där också</h2>
+      <p class="d-intro">Skills är en <b>öppen standard</b>. Anthropic skrev formatet och släppte det fritt, och OpenAI har anslutit sig. Samma SKILL.md, samma två rader längst upp. En skill du byggt för Claude kan alltså återanvändas.</p>
+      <div class="feat">
+        <div class="row"><dt>Var det ligger</dt><dd>I sidopanelen: <b>Plugins</b>, sedan fliken <b>Skills</b>. Du kan bygga en i chatten eller ladda upp en färdig.</dd></div>
+        <div class="row"><dt>Så kallar du på den</dt><dd>Med <code>@</code> följt av namnet, i stället för snedstreck.</dd></div>
+        <div class="row"><dt>Läs det här först</dt><dd>Skills i ChatGPT ligger under <b>ChatGPT Work</b> och finns inte på Free eller Go. OpenAI listar Business, Enterprise, Healthcare och Edu. Har du ett vanligt privatkonto ser du troligen ingen Skills-flik.</dd></div>
+      </div>
+      <div class="note reveal"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span><span>Därför bygger jag guiden på Claude: det funkar på fler konton. Kan du redan Claude-vägen kan du ChatGPT-vägen, det är samma fil.</span></div>
+    </div>
+  </section>
+
+  <!-- 10 · SECURITY -->
+  <section class="wrap narrow" style="padding-top:8px;margin:0 auto;">
+    <div class="detail reveal">
+      <div class="d-num">INNAN DU INSTALLERAR ANDRAS</div>
+      <h2>En snabb säkerhetskoll</h2>
       <p class="d-intro">En skill är inte bara text. Den kan innehålla skript som körs på din dator. Anthropics egna ord: <b>behandla det som att installera ett program</b>.</p>
       <div class="feat">
-        <div class="row"><dt>Öppna och läs</dt><dd>SKILL.md är vanlig text. Öppna den och läs vad den säger åt AI:n att göra, innan du lägger in den.</dd></div>
-        <div class="row"><dt>Kolla vem som gjort den</dt><dd>Anthropics egen marknadsplats är granskad. En slumpmässig länk från en främling är det inte.</dd></div>
+        <div class="row"><dt>Öppna och läs</dt><dd>SKILL.md är vanlig text. Öppna den och läs vad den säger åt AI:n att göra.</dd></div>
+        <div class="row"><dt>Kolla avsändaren</dt><dd>Anthropics egen katalog är granskad. En slumpmässig länk från en främling är det inte.</dd></div>
         <div class="row"><dt>Titta efter skript</dt><dd>Ligger det <code>.py</code>, <code>.sh</code> eller <code>.js</code>-filer i mappen kan de köras på din dator.</dd></div>
       </div>
-      <div class="note red"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><span>Det här är inte skrämselpropaganda, bara samma försiktighet som när du laddar ner ett program. Skills från kända avsändare är oftast helt oproblematiska. Men läs filen först, den är gjord för att vara läsbar.</span></div>
+      <div class="note red reveal"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><span>Det här är inte skrämsel, bara samma försiktighet som när du laddar ner ett program. Skills från kända avsändare är oftast helt oproblematiska. Men läs filen först, den är gjord för att gå att läsa.</span></div>
     </div>
-
   </section>
 
   <!-- CTA -->
