@@ -411,7 +411,12 @@ Håll rapporten under en skärm. Inga långa förklaringar.</pre>
               <span class="cb">Capabilities</span><span class="sep">→</span>
               <span class="cb">Code execution and file creation</span>
             </div>
-            <div class="note"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span><span>Det här är <b>inte</b> samma meny som Skills. Settings är där du slår på funktionen, Customize är där skillsen sedan bor. Två olika ställen, och det är därför många inte hittar.</span></div>
+
+            <figure class="fig">
+              <img src="images/steg1-capabilities.jpg" alt="Settings och Capabilities i Claude, med reglaget Cloud code execution and file creation markerat">
+              <figcaption>Steg 1 · slå på reglaget (1), sen hittar du Skills i menyn (2)</figcaption>
+            </figure>
+            <div class="note"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span><span>Det här är <b>inte</b> samma meny som Skills. Settings är där du slår på funktionen, Customize är där skillsen sedan bor. Två olika ställen, och det är därför många inte hittar. <b>Skills funkar på gratiskontot</b>, du behöver ingen betald plan för det här.</span></div>
           </div>
         </div>
 
@@ -440,7 +445,11 @@ Håll rapporten under en skärm. Inga långa förklaringar.</pre>
           <div class="step-n">4</div>
           <div>
             <h3>Slå på den</h3>
-            <p>Skillen är inte aktiv förrän du lagt in den. Gå till <b>Customize</b>, sedan <b>Skills</b>, och lägg till den där.</p>
+            <p>Skillen är inte aktiv förrän du lagt in den. Gå till <b>Customize</b>, sedan <b>Skills</b>, och lägg till den där. Så här ser en färdig skill ut när den ligger inne: reglaget (1) slår på och av den, och beskrivningen (2) är den AI:n läser.</p>
+            <figure class="fig">
+              <img src="images/steg2-skill.jpg" alt="En egen skill i Claude med reglaget och beskrivningen markerade">
+              <figcaption>En egen skill inne i appen · reglage (1) och beskrivning (2)</figcaption>
+            </figure>
             <div class="crumbs">
               <span class="cb">Customize</span><span class="sep">→</span>
               <span class="cb">Skills</span>
@@ -453,6 +462,11 @@ Håll rapporten under en skärm. Inga långa förklaringar.</pre>
           <div>
             <h3>Testa och be om ändringar</h3>
             <p>Be om en uppgift som skillen ska klara. Funkar det ser du att Claude nämner skillen medan den jobbar. Gör den fel, säg det bara rakt ut i chatten så ändrar Claude i skillen.</p>
+            <p>Vill du kalla på den direkt i stället för att vänta på att Claude väljer själv: skriv <b>snedstreck</b> i skrivfältet (1) så listas alla dina skills (2), och välj den du vill ha.</p>
+            <figure class="fig">
+              <img src="images/steg5-slash.jpg" alt="Snedstreck skrivet i skrivfältet listar alla installerade skills">
+              <figcaption>Skriv snedstreck (1) så listas dina skills (2)</figcaption>
+            </figure>
             <div class="note green"><span class="lb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Förvänta dig inte att den blir perfekt på första försöket. Den riktiga vinsten kommer när du kört den några gånger och justerat. En skill blir bättre varje gång du rättar den.</span></div>
           </div>
         </div>
@@ -472,6 +486,12 @@ Håll rapporten under en skärm. Inga långa förklaringar.</pre>
         <span class="cb">Browse skills</span><span class="sep">→</span>
         <span class="cb">Install</span>
       </div>
+      <figure class="fig">
+        <img src="images/steg4-directory.jpg" alt="Skills-katalogen i Claude med sökfält, plusknapp och kugghjul markerade">
+        <figcaption>Katalogen · sök (1), plus för att installera (2), kugghjul betyder redan installerad (3)</figcaption>
+      </figure>
+      <p class="d-intro" style="margin-top:18px">Sök fram det du vill ha (1) och tryck på <b>plus</b> (2) för att installera. Har en skill ett <b>kugghjul</b> i stället (3) betyder det att du redan har den. Notera att <b>skill-creator</b> ligger här, så verktyget som bygger skills installerar du på exakt samma sätt som allt annat.</p>
+
       <div class="feat">
         <div class="row"><dt>Titta utan konto</dt><dd>Vill du bläddra i lugn och ro först finns katalogen på webben: <a href="https://claude.com/plugins" target="_blank" rel="noopener">claude.com/plugins</a>. Ingen inloggning krävs.</dd></div>
         <div class="row"><dt>Installerade är låsta</dt><dd>Skills du installerar från katalogen är <b>view-only</b>. Du kan använda dem men inte ändra i dem. Vill du ändra en: ladda ner en kopia, ändra den, och ladda upp den som din egen.</dd></div>
@@ -519,7 +539,7 @@ Håll rapporten under en skärm. Inga långa förklaringar.</pre>
         <div class="row"><dt>Vad den heter</dt><dd><b>Mappens namn blir kommandot.</b> Mappen <code>morgon</code> körs med <code>/morgon</code>.</dd></div>
       </div>
 
-      <p class="d-intro" style="margin-top:24px">Vill du ha hjälp att skriva den finns Anthropics eget verktyg. Det är inte förinstallerat, du installerar det en gång:</p>
+      <p class="d-intro" style="margin-top:24px">Vill du ha hjälp att skriva den finns Anthropics eget verktyg, <b>skill-creator</b>. Kör du i appen installerar du det från katalogen som vilken skill som helst. I terminalen är det inte förinstallerat, där installerar du det en gång:</p>
       <div class="prompt">
         <div class="prompt-bar"><span class="lbl">Installera skill-creator</span><button class="prompt-copy" type="button">Kopiera</button></div>
         <pre>/plugin install skill-creator@claude-plugins-official</pre>
